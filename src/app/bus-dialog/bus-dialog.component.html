@@ -1,0 +1,43 @@
+<mat-toolbar class="header">
+        <span style="color:white"> Coordenadas Veículo: {{veiculo[1]}}</span>
+</mat-toolbar>
+
+<mat-card>
+        <mat-card-content>
+                <span>
+                        <strong>Latitude:</strong> {{lat}}
+                        <strong>Longitude:</strong> {{lng}}</span>
+                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+
+        </mat-card-content>
+</mat-card>
+
+<mat-toolbar class="header" style="margin-top :10px;">
+        <span style="color:white"> Coordenadas</span>
+</mat-toolbar>
+<mat-card>
+                <mat-card-content>
+
+                <div style="width: 100%; height: 15vh; overflow-y: auto;">
+                        <table class="full-width">
+                                <thead>
+                                        <tr>
+                                                <th></th>
+                                        </tr>
+                                </thead>
+                                <tbody *ngFor="let coord of coordenadas" [(ngModel)]="coordenadas" ngDefaultControl>
+                                        <tr>
+                                                <td>
+                                                        <span>
+                                                                <strong>X:</strong> {{coord[3].toFixed(4)}}
+                                                                <strong>Y:</strong> {{coord[4].toFixed(4)}}</span>
+                                                </td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                </div>
+
+        </mat-card-content>
+</mat-card>
